@@ -45,3 +45,12 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.d
+*.elf
+*.s19
+*.o
+*.mk
+*.project
+*.s
+*.txt
+*.x
