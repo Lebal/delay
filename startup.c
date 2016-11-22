@@ -17,6 +17,7 @@
 #define GPIO_ODR_LOW ((volatile unsigned char *) (GPIO_D+0x14))  
 #define GPIO_ODR_HIGH ((volatile unsigned char *) (GPIO_D+0x15))  
  
+ #define SIMULATOR
  void delay_250ns(){
 	 /*SystemCoreClock = 168000000*/
 	 *STK_CTRL =  0;
@@ -33,14 +34,15 @@
 	 
 void delay_milli(unsigned int ms){
 	int i;
-	
-	#ifdef SIMULATOR
-	ms = ms/100;
+
+#ifdef SIMULATOR
+	//ms = ms/100;
+	ms = 5;
 	ms++;
-	#endif
+#endif
 	while (ms--){
 #ifdef SIMULATOR
-		for(i = 0; i<1; i++)
+		for(i = 0; i<5; i++)
 #else	
 		for(i =0; i<1000;i++)
 #endif
@@ -104,9 +106,9 @@ void main(void)
 	
 	while(1){
 		*GPIO_ODR_LOW = 0xFF;
-		delay_milli(6);
+		delay_milli(500);
 		*GPIO_ODR_LOW = 0;
-		delay_milli(6);
+		delay_milli(500);
 		
 		}
 }
