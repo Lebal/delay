@@ -50,7 +50,7 @@ Temporary Items
 *.s19
 *.o
 *.mk
-*.project
+
 *.s
 *.txt
 *.x
